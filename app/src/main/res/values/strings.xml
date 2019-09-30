@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WiiCandy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="textButtonLogin">Entrar</string>
+
+</resources>
