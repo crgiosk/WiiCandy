@@ -26,7 +26,7 @@
                     android:id="@+id/editTextTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="41dp"
+                    android:layout_marginTop="36dp"
                     android:ems="10"
                     android:hint="Cual fue el total?"
                     android:inputType="textPersonName"
@@ -61,12 +61,24 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!--
                 <Button
-                    android:id="@+id/buttonCompras"
                     android:layout_width="322dp"
                     android:layout_height="43dp"
 
                     android:layout_marginTop="54dp"
+                    android:background="@drawable/style_button_login"
+                    android:textColor="@drawable/text_button_login"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTotal" />
+                    -->
+
+                <Button
+                    android:id="@+id/buttonCompras"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
                     android:background="@drawable/style_button_login"
                     android:text="Guardar compra"
                     android:textColor="@drawable/text_button_login"
@@ -87,8 +99,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintGuide_begin="20dp"
-                    app:layout_constraintGuide_percent="0.90" />
+                    app:layout_constraintGuide_percent="0.90"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
