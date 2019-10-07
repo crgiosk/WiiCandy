@@ -12,13 +12,19 @@
         tools:layout="@layout/fragment_fragment_login" >
         <action
             android:id="@+id/action_fragment_login_to_fragmentHome"
-            app:destination="@id/fragmentHome"
-            app:popUpTo="@+id/fragmentHome"
-            app:popUpToInclusive="true" />
+            app:destination="@id/fragmentHome" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.wiedii.wiicandy.vistas.FragmentHome"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.wiedii.wiicandy.vistas.FragmentCompra"
+        android:label="fragment_compra"
+        tools:layout="@layout/fragment_compra" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragment_compras2"
+            app:destination="@id/fragment_compras2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_compras2"
+        android:name="com.wiedii.wiicandy.vistas.fragment_compras"
+        android:label="fragment_compras" />
 </navigation>
