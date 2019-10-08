@@ -1,6 +1,7 @@
 package com.wiedii.wiicandy.UI.ViewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -23,5 +24,6 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
 
     fun inserCompra(compra: Compra)=viewModelScope.launch{
         repository.nuevaCompra(compra)
+        Log.e("insetCompra"," compra")
     }
 }

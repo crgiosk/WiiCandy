@@ -1,6 +1,7 @@
 package com.wiedii.wiicandy.DAO
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -25,6 +26,7 @@ abstract class CompraRoomDatabase : RoomDatabase() {
                     compraDao.insertCompra(compra)
                     compra = Compra(2, "test", "mani", "3", 0, "hoy")
                     compraDao.insertCompra(compra)
+                    Log.e("insertCompra","Compra insertada")
 
                 }
             }
@@ -35,20 +37,20 @@ abstract class CompraRoomDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: CompraRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): CompraRoomDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    CompraRoomDatabase::class.java,
-                    "wiicandy"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
+        fun getDatabase(context: Context,
+                        scope: CoroutineScope
+        ): CompraRoomDatabase {
+           return INSTANCE?: synchronized(this){
+               val instance = Room.databaseBuilder(
+                   context.applicationContext,
+                   CompraRoomDatabase::class.java,
+                   "wiicandy"
+               ).addCallback(CompraDatabaseCallBack(scope))
+                   .build()
+               INSTANCE = instance
+               return instance
+           }
+
         }
     }
 }

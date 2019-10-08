@@ -7,16 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wiedii.wiicandy.R
-import com.wiedii.wiicandy.UI.ViewModel.MyCompraTestRecyclerViewAdapter
+import com.wiedii.wiicandy.UI.ViewModel.CompraListAdapter
+import com.wiedii.wiicandy.UI.ViewModel.CompraViewModel
 
 /**
  * A simple [Fragment] subclass.
  */
 class fragment_compras : Fragment() {
-
+private lateinit var compraViewModel: CompraViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,16 +31,24 @@ class fragment_compras : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRecycler()
+        val context=activity!!.applicationContext
+        val recyclerView = activity!!.findViewById<RecyclerView>(R.id.listRecyclerView)
+
+        //set adapter
+        recyclerView.adapter=adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        //set viewModel
+
+
         Toast.makeText(context,"Welcome",Toast.LENGTH_LONG).show()
     }
 
-    fun setRecycler(){
-        val recyclerView = activity!!.findViewById<RecyclerView>(R.id.listRecyclerView)
-        val adapter = MyCompraTestRecyclerViewAdapter()
-        recyclerView.adapter=adapter
-        recyclerView.layoutManager= LinearLayoutManager(context)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        compraViewModel = ViewModelProviders.of(this).get(CompraViewModel::class.java)
+        compraViewModel.allCompras.observe(this, Observer {
+                compras -> compras?.let { adapter.setCompras(it) }
+        })
     }
-
 
 }

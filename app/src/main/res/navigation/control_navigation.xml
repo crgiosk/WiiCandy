@@ -20,11 +20,11 @@
         android:label="fragment_compra"
         tools:layout="@layout/fragment_compra" >
         <action
-            android:id="@+id/action_fragmentHome_to_fragment_compras2"
-            app:destination="@id/fragment_compras2" />
+            android:id="@+id/action_fragmentHome_to_fragment_compras"
+            app:destination="@id/fragment_compras" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_compras2"
+        android:id="@+id/fragment_compras"
         android:name="com.wiedii.wiicandy.UI.vistas.fragment_compras"
         android:label="fragment_compras" />
 </navigation>
