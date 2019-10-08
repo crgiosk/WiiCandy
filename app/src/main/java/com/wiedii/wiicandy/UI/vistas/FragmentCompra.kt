@@ -1,4 +1,4 @@
-package com.wiedii.wiicandy.vistas
+package com.wiedii.wiicandy.UI.vistas
 
 
 import android.os.Bundle

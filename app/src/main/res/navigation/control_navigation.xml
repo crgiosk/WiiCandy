@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_login"
-        android:name="com.wiedii.wiicandy.vistas.Fragment_login"
+        android:name="com.wiedii.wiicandy.UI.vistas.Fragment_login"
         android:label="fragment_fragment_login"
         tools:layout="@layout/fragment_fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.wiedii.wiicandy.vistas.FragmentCompra"
+        android:name="com.wiedii.wiicandy.UI.vistas.FragmentCompra"
         android:label="fragment_compra"
         tools:layout="@layout/fragment_compra" >
         <action
@@ -25,6 +25,6 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_compras2"
-        android:name="com.wiedii.wiicandy.vistas.fragment_compras"
+        android:name="com.wiedii.wiicandy.UI.vistas.fragment_compras"
         android:label="fragment_compras" />
 </navigation>

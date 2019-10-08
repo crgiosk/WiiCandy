@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vistas.FragmentCompra">
+    tools:context=".UI.vistas.FragmentCompra">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -43,7 +43,8 @@
                     android:baselineAligned="false"
                     android:ems="10"
                     android:hint="Que compraste?"
-                    android:inputType="textAutoComplete"
+                    android:autofillHints="comida"
+                    android:inputType="text"
                     app:layout_constraintBottom_toTopOf="@+id/editTextCantidad"
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -56,7 +57,7 @@
                     android:layout_marginTop="36dp"
                     android:ems="10"
                     android:hint="Que cantidad llevaste?"
-                    android:inputType="numberSigned"
+                    android:inputType="number"
                     app:layout_constraintBottom_toTopOf="@+id/editTextTotal"
                     app:layout_constraintEnd_toEndOf="@+id/editTextProducto"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -84,7 +85,7 @@
                     android:layout_marginTop="36dp"
                     android:ems="10"
                     android:hint="Cual fue el total?"
-                    android:inputType="numberSigned"
+                    android:inputType="number"
                     app:layout_constraintBottom_toTopOf="@+id/buttonCompras"
                     app:layout_constraintEnd_toEndOf="@+id/editTextCantidad"
                     app:layout_constraintHorizontal_bias="0.0"

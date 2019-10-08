@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vistas.Fragment_login">
+    tools:context=".UI.vistas.Fragment_login">
 
     <ScrollView
         android:layout_width="match_parent"
