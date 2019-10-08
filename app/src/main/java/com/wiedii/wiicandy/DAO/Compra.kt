@@ -19,6 +19,6 @@ class Compra(
     @ColumnInfo(name = "usuario") val usuario: String,
     @ColumnInfo(name = "producto") val producto:String,
     @ColumnInfo(name = "cantidad") val cantidad:String,
-    @ColumnInfo(name = "total") val compra:Int,
+    @ColumnInfo(name = "total") val total:Int,
     @ColumnInfo(name = "fecha") val fecha:String
 )

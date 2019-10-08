@@ -36,17 +36,9 @@ class FragmentCompra : Fragment() {
         }
     }
 
-
-
-
-
-
-
-
     private fun validarTodosInputs(): Boolean {
         return editTextProducto.text.isNullOrEmpty() || editTextCantidad.text.isNullOrEmpty() || editTextTotal.text.isNullOrEmpty()
     }
-
 
     fun showError() {
         val required = "Informacion requerida"
