@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.wiedii.wiicandy.Helpers.Compra
 
-import kotlinx.android.synthetic.main.fragment_mycompra.view.*
+import kotlinx.android.synthetic.main.fragment_compra_item.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
@@ -32,7 +32,7 @@ class MyMyCompraRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_mycompra, parent, false)
+            .inflate(R.layout.fragment_compra_item, parent, false)
         return ViewHolder(view)
     }
 

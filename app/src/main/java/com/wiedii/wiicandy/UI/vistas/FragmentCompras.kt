@@ -1,6 +1,5 @@
-package com.wiedii.wiicandy
+package com.wiedii.wiicandy.UI.vistas
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -9,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.wiedii.wiicandy.CompraInteractionListener
 import com.wiedii.wiicandy.Helpers.Compra
+import com.wiedii.wiicandy.MyMyCompraRecyclerViewAdapter
+import com.wiedii.wiicandy.R
 
-class MyCompraFragment : Fragment(), CompraInteractionListener {
-    override fun nuevaCompra(compra: Compra) {
-
-    }
+class FragmentCompras : Fragment() {
 
     // TODO: Customize parameters
     private var columnCount = 1
@@ -33,7 +32,7 @@ class MyCompraFragment : Fragment(), CompraInteractionListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_mycompra_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_compra_list, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
@@ -83,7 +82,7 @@ class MyCompraFragment : Fragment(), CompraInteractionListener {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            MyCompraFragment().apply {
+            FragmentCompras().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }
