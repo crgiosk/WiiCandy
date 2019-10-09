@@ -3,7 +3,6 @@ package com.wiedii.wiicandy.DAO
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.wiedii.wiicandy.Helpers.Utilidades
 
 
 @Entity(tableName = "compra_tabla")

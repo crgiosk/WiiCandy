@@ -22,9 +22,17 @@
         <action
             android:id="@+id/action_fragmentHome_to_fragment_compras2"
             app:destination="@id/fragment_compras2" />
+        <action
+            android:id="@+id/action_fragmentHome_to_myCompraFragment"
+            app:destination="@id/myCompraFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_compras2"
         android:name="com.wiedii.wiicandy.UI.vistas.fragment_compras"
         android:label="fragment_compras" />
+    <fragment
+        android:id="@+id/myCompraFragment"
+        android:name="com.wiedii.wiicandy.MyCompraFragment"
+        android:label="fragment_mycompra_list"
+        tools:layout="@layout/fragment_mycompra_list" />
 </navigation>

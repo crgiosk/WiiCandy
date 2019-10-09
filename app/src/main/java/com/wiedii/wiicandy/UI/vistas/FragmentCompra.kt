@@ -29,7 +29,7 @@ class FragmentCompra : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonCompras.setOnClickListener {
            if (!validarTodosInputs()){
-               Navigation.findNavController(it).navigate(R.id.action_fragmentHome_to_fragment_compras2)
+               Navigation.findNavController(it).navigate(R.id.action_fragmentHome_to_myCompraFragment)
            }else{
                showError()
            }

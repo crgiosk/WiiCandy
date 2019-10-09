@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Compra::class), version = 1)
+@Database(entities = arrayOf(Compra::class), version = 1,exportSchema = false)
  abstract class CompraRoomDatabase : RoomDatabase() {
     abstract fun compraDao(): CompraDao
 
