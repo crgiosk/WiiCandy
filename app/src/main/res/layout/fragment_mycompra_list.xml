@@ -9,4 +9,4 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     tools:context=".MyCompraFragment"
-    tools:listitem="@layout/fragment_compra_item" />
+    tools:listitem="@layout/fragment_mycompra" />
