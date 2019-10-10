@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.wiedii.wiicandy.CompraInteractionListener
 import com.wiedii.wiicandy.Helpers.Compra
-import com.wiedii.wiicandy.MyMyCompraRecyclerViewAdapter
+import com.wiedii.wiicandy.Helpers.CompraCrud
 import com.wiedii.wiicandy.R
 
 class FragmentCompras : Fragment() {
@@ -22,10 +22,12 @@ class FragmentCompras : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+
+
+
     }
 
     override fun onCreateView(
@@ -41,171 +43,12 @@ class FragmentCompras : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-
+                val crud=CompraCrud(context)
+                crud.triggerGetCompras()
                 compralist = ArrayList()
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                compralist.add(
-                    Compra(
-                        "test",
-                        "producto test",
-                        "423",
-                        "hoy test",
-                        "342"
-                    )
-                )
-                adapter = MyMyCompraRecyclerViewAdapter(compralist, listener)
+
+                compralist=crud.getCompras()
+                adapter = CompraRecyclerViewAdapter(compralist, listener)
             }
         }
         return view

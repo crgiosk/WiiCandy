@@ -1,11 +1,13 @@
-package com.wiedii.wiicandy
+package com.wiedii.wiicandy.UI.vistas
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.wiedii.wiicandy.CompraInteractionListener
 import com.wiedii.wiicandy.Helpers.Compra
+import com.wiedii.wiicandy.R
 
 import kotlinx.android.synthetic.main.fragment_compra_item.view.*
 
@@ -14,10 +16,10 @@ import kotlinx.android.synthetic.main.fragment_compra_item.view.*
  * specified [OnListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
  */
-class MyMyCompraRecyclerViewAdapter(
+class CompraRecyclerViewAdapter(
     private val mValues: List<Compra>,
     private val mListener: CompraInteractionListener?
-) : RecyclerView.Adapter<MyMyCompraRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<CompraRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
 

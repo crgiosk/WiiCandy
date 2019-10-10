@@ -9,19 +9,22 @@ class CompraUtilidades {
 
         val createTableUsuario =
             "CREATE TABLE ${Usuario.javaClass.name.toLowerCase()} (${Usuario.columnId} int primary key not null,${Usuario.columnNombre} varchar(30) );"
-        val createTableCompra = "CREATE TABLE ${Compra.javaClass.name.toLowerCase()} (" +
+
+
+        val createTableCompra = "CREATE TABLE ${Compra.nameTable} (" +
                 "${Compra.columnUsuario} varchar(11) not null," +
                 "${Compra.columnProducto} varchar(20) not null," +
-                "${Compra.columnCantidad} int(3) not null," +
-                "${Compra.columnTotal} int(6) not null, " +
+                "${Compra.columnCantidad} varchar(6) not null," +
+                "${Compra.columnTotal} varchar(6) not null, " +
                 "${Compra.columnFecha} varchar(30) not null);"
 
-        val createTables= "$createTableUsuario $createTableCompra"
-        val dropTables="DROP TABLE  IF EXISTS ${Usuario.javaClass.name.toLowerCase()} ; DROP TABLE IF EXISTS ${Compra.javaClass.name.toLowerCase()}}"
+        val createTables= "$createTableCompra"
+        val dropTables="DROP TABLE  IF EXISTS ${Compra.nameTable} "
 
 
         class Usuario : BaseColumns {
             companion object {
+                val nameTable="usuario"
                 val columnId = "id"
                 val columnNombre = "nombre"
             }

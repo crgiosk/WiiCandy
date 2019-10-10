@@ -2,12 +2,15 @@ package com.wiedii.wiicandy.UI.vistas
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
+import com.wiedii.wiicandy.Helpers.Compra
+import com.wiedii.wiicandy.Helpers.CompraCrud
 
 import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_compra.*
@@ -27,20 +30,26 @@ class FragmentCompra : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val compraCrud = CompraCrud(context!!)
         buttonCompras.setOnClickListener {
-           if (!validarTodosInputs()){
-               Navigation.findNavController(it).navigate(R.id.action_fragmentHome_to_myCompraFragment)
-           }else{
-               showError()
-           }
+            if (!validarTodosInputs()) {
+                compraCrud.nuevaCompra(
+                    Compra(
+                        "12345",
+                        editTextProducto.text.toString(),
+                        editTextCantidad.text.toString(),
+                        "hoy",
+                        editTextTotal.text.toString()
+                    )
+                )
+                Log.e("error", "Seteo de la clase compra")
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+            } else {
+                showError()
+            }
         }
     }
-
-
-
-
-
-
 
 
     private fun validarTodosInputs(): Boolean {
@@ -61,11 +70,15 @@ class FragmentCompra : Fragment() {
             editTextTotal.error = "Te vas a ir sin pagar?"
         }
 
-        if (editTextProducto.text.isNullOrEmpty() && editTextCantidad.text.isNullOrEmpty() && editTextTotal.text.isNullOrEmpty()){
+        if (editTextProducto.text.isNullOrEmpty() && editTextCantidad.text.isNullOrEmpty() && editTextTotal.text.isNullOrEmpty()) {
             editTextProducto.error = required
             editTextCantidad.error = required
             editTextTotal.error = required
-            Snackbar.make(activity!!.findViewById(android.R.id.content),"Informacion requerida",Snackbar.LENGTH_LONG).show()
+            Snackbar.make(
+                activity!!.findViewById(android.R.id.content),
+                "Informacion requerida",
+                Snackbar.LENGTH_LONG
+            ).show()
         }
 
     }
