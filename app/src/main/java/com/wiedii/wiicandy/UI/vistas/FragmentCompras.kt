@@ -52,6 +52,159 @@ class FragmentCompras : Fragment() {
                         "342"
                     )
                 )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
+                compralist.add(
+                    Compra(
+                        "test",
+                        "producto test",
+                        "423",
+                        "hoy test",
+                        "342"
+                    )
+                )
                 adapter = MyMyCompraRecyclerViewAdapter(compralist, listener)
             }
         }
