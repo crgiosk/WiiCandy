@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.snackbar.Snackbar
 import com.wiedii.wiicandy.CompraInteractionListener
 import com.wiedii.wiicandy.Helpers.Compra
 import com.wiedii.wiicandy.Helpers.CompraCrud
@@ -25,9 +26,6 @@ class FragmentCompras : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
-
-
-
     }
 
     override fun onCreateView(
@@ -43,13 +41,20 @@ class FragmentCompras : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                val crud=CompraCrud(context)
+                val crud = CompraCrud(context)
                 crud.triggerGetCompras()
                 compralist = ArrayList()
 
-                compralist=crud.getCompras()
+                compralist = crud.getCompras()
                 adapter = CompraRecyclerViewAdapter(compralist, listener)
             }
+
+            Snackbar.make(
+                activity!!.findViewById(android.R.id.content),
+                "Debes $${CompraCrud(context!!.applicationContext).deuda()} pesos",
+                Snackbar.LENGTH_LONG
+            ).show()
+
         }
         return view
     }
