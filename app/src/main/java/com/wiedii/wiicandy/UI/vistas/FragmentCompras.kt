@@ -48,12 +48,8 @@ class FragmentCompras : Fragment() {
                 compralist = crud.getCompras()
                 adapter = CompraRecyclerViewAdapter(compralist, listener)
             }
-
-            Snackbar.make(
-                activity!!.findViewById(android.R.id.content),
-                "Debes $${CompraCrud(context!!.applicationContext).deuda()} pesos",
-                Snackbar.LENGTH_LONG
-            ).show()
+//activity!!.findViewById(android.R.id.content)
+            Snackbar.make(activity!!.findViewById(android.R.id.content), "Debes $${CompraCrud(context!!.applicationContext).deuda()} pesos", Snackbar.LENGTH_LONG).show()
 
         }
         return view

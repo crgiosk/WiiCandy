@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.wiedii.wiicandy.Helpers.Compra
@@ -34,6 +35,7 @@ class FragmentCompra : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        clearFields()
         val compraCrud = CompraCrud(context!!)
         buttonCompras.setOnClickListener {
             if (!validarTodosInputs()) {
@@ -41,10 +43,14 @@ class FragmentCompra : Fragment() {
                     editTextCantidad.error = "Tu dieta no te lo permite "
                 } else {
 
-                    compraCrud.nuevaCompra(compra())
-                    Log.e("error", "Seteo de la clase compra")
-                    Navigation.findNavController(it)
-                        .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+                    if  (compraCrud.nuevaCompra(compra())){
+                        clearFields()
+                        Log.e("error", "Seteo de la clase compra")
+                        Navigation.findNavController(it)
+                            .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+                    }else{
+                        Toast.makeText(context,"Error al guardar la compra",Toast.LENGTH_LONG).show()
+                    }
                 }
             } else {
                 showError()
@@ -93,7 +99,7 @@ class FragmentCompra : Fragment() {
     }
 
 
-    fun showError() {
+    private fun showError() {
         val required = "Informacion requerida"
 
         if (editTextProducto.text.isNullOrEmpty()) {
@@ -119,5 +125,15 @@ class FragmentCompra : Fragment() {
 
     }
 
+    private fun clearFields() {
+        editTextProducto.setText("")
+        editTextCantidad.setText("")
+        editTextTotal.setText("")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        clearFields()
+    }
 
 }

@@ -2,10 +2,12 @@ package com.wiedii.wiicandy.UI.vistas
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import androidx.navigation.Navigation
 import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_fragment_login.*
@@ -14,7 +16,8 @@ import kotlinx.android.synthetic.main.fragment_fragment_login.*
  * A simple [Fragment] subclass.
  */
 class Fragment_login : Fragment() {
-
+    private lateinit var url: String
+    private lateinit var bundle: Bundle
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +32,24 @@ class Fragment_login : Fragment() {
         buttonLogin_Entrar.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_fragment_login_to_fragmentHome)
         }
+
+        imageViewYouTube.setOnClickListener {
+            navigateToRedesSociales("https://www.youtube.com/channel/UC9mkUgGiw31FV99-AMjk8jQ", it)
+        }
+        imageViewFacebook.setOnClickListener {
+            navigateToRedesSociales("https://wiedii.squadlinx.com/login", it)
+        }
+
+        imageViewInstagram.setOnClickListener {
+            navigateToRedesSociales("https://wiedii.squadlinx.com/login",it)
+        }
+    }
+
+    private fun navigateToRedesSociales( urlPage: String, it: View) {
+        bundle = Bundle()
+        bundle.putString("url", urlPage)
+        Navigation.findNavController(it).navigate(R.id.action_fragment_login_to_redesSociales,bundle)
+
     }
 
 

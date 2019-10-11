@@ -4,6 +4,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="textButtonLogin">Entrar</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="editextCantidad">Que cantidad llevaste?</string>
+    <string name="editextProducto">Que compraste?</string>
+    <string name="editextTotal" >Cual fue el total?</string>
+
 
 
 </resources>

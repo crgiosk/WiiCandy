@@ -31,7 +31,7 @@ class CompraCrud(context: Context) {
     }
 
 
-    fun nuevaCompra(compra: Compra) {
+    fun nuevaCompra(compra: Compra):Boolean {
         try {
             val contentValues = ContentValues()
 
@@ -42,20 +42,22 @@ class CompraCrud(context: Context) {
             contentValues.put(CompraUtilidades.Companion.Compra.columnFecha, compra.fecha)
             contentValues.put(CompraUtilidades.Companion.Compra.columnIcono, compra.icono)
             Log.e("test", CompraUtilidades.createTables)
-            saveNuevaCompra(contentValues)
+            return saveNuevaCompra(contentValues) > 0
+
         } catch (e: SQLiteException) {
             Log.e(this.javaClass.name, "Guardadda ${e.message}")
+            return false
         }
     }
 
-    private fun saveNuevaCompra(contentValues: ContentValues) {
+    private fun saveNuevaCompra(contentValues: ContentValues):Long {
         try {
             db = helper.writableDatabase
             Log.e("test", CompraUtilidades.Companion.Compra.nameTable)
-            val test = db.insert("compra", null, contentValues)
-            Log.e("insertCompra", "$test")
+            return db.insert("compra", null, contentValues)
         } catch (e: SQLiteException) {
             Log.e("insertCompra", e.message!!.toUpperCase())
+            return 0
         }
 
         db.close()
