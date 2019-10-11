@@ -12,7 +12,17 @@
         tools:layout="@layout/fragment_fragment_login" >
         <action
             android:id="@+id/action_fragment_login_to_fragmentHome"
-            app:destination="@id/fragmentHome" />
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@anim/entrar_derecha_izquierda"
+            app:exitAnim="@anim/close_derecha_izquierda"
+            app:popEnterAnim="@anim/entrar_izquierda_derecha"
+            app:popExitAnim="@anim/close_izquierda_derecha"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_fragment_login_to_redesSociales"
+            app:destination="@id/redesSociales"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHome"
@@ -21,11 +31,20 @@
         tools:layout="@layout/fragment_compra" >
         <action
             android:id="@+id/action_fragmentHome_to_myCompraFragment"
-            app:destination="@id/myCompraFragment" />
+            app:destination="@id/myCompraFragment"
+            app:enterAnim="@anim/entrar_abajo_arriba"
+            app:exitAnim="@anim/salir_arriba_abajo"
+            app:popEnterAnim="@anim/entrar_arriba_abajo"
+            app:popExitAnim="@anim/salir_abajo_arriba" />
     </fragment>
     <fragment
         android:id="@+id/myCompraFragment"
         android:name="com.wiedii.wiicandy.UI.vistas.FragmentCompras"
         android:label="fragment_mycompra_list"
         tools:layout="@layout/fragment_compra_list" />
+    <fragment
+        android:id="@+id/redesSociales"
+        android:name="com.wiedii.wiicandy.RedesSociales"
+        android:label="fragment_redes_sociales"
+        tools:layout="@layout/fragment_redes_sociales" />
 </navigation>

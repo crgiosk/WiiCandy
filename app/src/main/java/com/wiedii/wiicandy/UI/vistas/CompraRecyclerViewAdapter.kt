@@ -4,12 +4,15 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.wiedii.wiicandy.CompraInteractionListener
 import com.wiedii.wiicandy.Helpers.Compra
 import com.wiedii.wiicandy.R
 
 import kotlinx.android.synthetic.main.fragment_compra_item.view.*
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
@@ -20,7 +23,7 @@ class CompraRecyclerViewAdapter(
     private val mValues: List<Compra>,
     private val mListener: CompraInteractionListener?
 ) : RecyclerView.Adapter<CompraRecyclerViewAdapter.ViewHolder>() {
-
+    private var totalCompras: Int = 0
     private val mOnClickListener: View.OnClickListener
 
     init {
@@ -38,12 +41,15 @@ class CompraRecyclerViewAdapter(
         return ViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
         holder.cantidad.text = item.cantidad
         holder.producto.text = item.producto
         holder.total.text = item.total
         holder.fecha.text = item.fecha
+        holder.icono.setImageResource(item.icono!!)
+        totalCompras += item.total!!.toInt()
 
         with(holder.mView) {
             tag = item
@@ -58,6 +64,7 @@ class CompraRecyclerViewAdapter(
         val cantidad: TextView = mView.textViewCantidad
         val total: TextView = mView.textViewTotal
         val fecha: TextView = mView.textViewFecha
+        val icono: ImageView = mView.imageViewProducto
 
         override fun toString(): String {
             return super.toString() + " '" + producto.text + "'"

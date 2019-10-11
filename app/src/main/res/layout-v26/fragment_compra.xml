@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.vistas.FragmentCompra">
+    tools:context=".UI.vistas.FragmentCompra"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,8 +19,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="40dp">
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="11dp">
 
                 <!--
                 <Button
@@ -39,11 +40,12 @@
                     android:id="@+id/editTextProducto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="96dp"
-                    android:baselineAligned="false"
-                    android:ems="10"
-                    android:hint="Que compraste?"
+                    android:layout_marginTop="50dp"
                     android:autofillHints="comida"
+                    android:baselineAligned="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:hint="@string/editextProducto"
                     android:inputType="text"
                     app:layout_constraintBottom_toTopOf="@+id/editTextCantidad"
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
@@ -55,8 +57,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
+                    android:editable="true"
                     android:ems="10"
-                    android:hint="Que cantidad llevaste?"
+                    android:hint="@string/editextCantidad"
                     android:inputType="number"
                     app:layout_constraintBottom_toTopOf="@+id/editTextTotal"
                     app:layout_constraintEnd_toEndOf="@+id/editTextProducto"
@@ -72,7 +75,6 @@
                     android:background="@drawable/style_button_login"
                     android:text="Guardar compra"
                     android:textColor="@drawable/text_button_login"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -83,8 +85,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
+                    android:editable="true"
                     android:ems="10"
-                    android:hint="Cual fue el total?"
+                    android:hint="@string/editextTotal"
                     android:inputType="number"
                     app:layout_constraintBottom_toTopOf="@+id/buttonCompras"
                     app:layout_constraintEnd_toEndOf="@+id/editTextCantidad"
@@ -110,7 +113,22 @@
                     app:layout_constraintGuide_percent="0.90"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonVerCompras"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:background="@drawable/style_button_login"
+                    android:text="Ver tus compras"
+                    android:textColor="@drawable/text_button_login"
+                    app:layout_constraintEnd_toEndOf="@+id/buttonCompras"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/buttonCompras"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonCompras" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

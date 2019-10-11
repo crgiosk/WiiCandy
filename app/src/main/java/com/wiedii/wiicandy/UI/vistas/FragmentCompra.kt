@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.wiedii.wiicandy.Helpers.Compra
@@ -14,6 +15,10 @@ import com.wiedii.wiicandy.Helpers.CompraCrud
 
 import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_compra.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 /**
  * A simple [Fragment] subclass.
@@ -30,34 +35,71 @@ class FragmentCompra : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        clearFields()
         val compraCrud = CompraCrud(context!!)
         buttonCompras.setOnClickListener {
             if (!validarTodosInputs()) {
-                compraCrud.nuevaCompra(
-                    Compra(
-                        "12345",
-                        editTextProducto.text.toString(),
-                        editTextCantidad.text.toString(),
-                        "hoy",
-                        editTextTotal.text.toString()
-                    )
-                )
-                Log.e("error", "Seteo de la clase compra")
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+                if (editTextCantidad.text.length !in 1..2) {
+                    editTextCantidad.error = "Tu dieta no te lo permite "
+                } else {
+
+                    if  (compraCrud.nuevaCompra(compra())){
+                        clearFields()
+                        Log.e("error", "Seteo de la clase compra")
+                        Navigation.findNavController(it)
+                            .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+                    }else{
+                        Toast.makeText(context,"Error al guardar la compra",Toast.LENGTH_LONG).show()
+                    }
+                }
             } else {
                 showError()
             }
         }
+
+        buttonVerCompras.setOnClickListener {
+
+            Navigation.findNavController(it)
+                .navigate(R.id.action_fragmentHome_to_myCompraFragment)
+
+        }
     }
 
+    private fun compra(): Compra {
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+
+        val date = Date()
+        Log.e("fecha",dateFormat.format(date))
+        val icono = when (Random.nextInt(0..8)) {
+            0 -> R.drawable.ic_001_candy_1
+            1 -> R.drawable.ic_002_candy
+            2 -> R.drawable.ic_003_toffee
+            3 -> R.drawable.ic_004_candy_2
+            4 -> R.drawable.ic_005_candy_bag
+            5 -> R.drawable.ic_006_cookies
+            6 -> R.drawable.ic_007_cookies_1
+            7 -> R.drawable.ic_008_cookies_2
+            8 -> R.drawable.ic_009_gingerbread_man
+            else -> R.drawable.ic_launcher_foreground
+        }
+        return Compra(
+            "12345",
+            editTextProducto.text.toString(),
+            editTextCantidad.text.toString(),
+            editTextTotal.text.toString(),
+            dateFormat.format(date),
+            icono
+        )
+
+    }
 
     private fun validarTodosInputs(): Boolean {
+
         return editTextProducto.text.isNullOrEmpty() || editTextCantidad.text.isNullOrEmpty() || editTextTotal.text.isNullOrEmpty()
     }
 
 
-    fun showError() {
+    private fun showError() {
         val required = "Informacion requerida"
 
         if (editTextProducto.text.isNullOrEmpty()) {
@@ -83,5 +125,15 @@ class FragmentCompra : Fragment() {
 
     }
 
+    private fun clearFields() {
+        editTextProducto.setText("")
+        editTextCantidad.setText("")
+        editTextTotal.setText("")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        clearFields()
+    }
 
 }

@@ -75,30 +75,30 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextNumberPhone" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageViewInstagram"
                     android:layout_width="69dp"
                     android:layout_height="69dp"
                     android:layout_marginTop="40dp"
                     android:src="@drawable/ic_instagram_logo"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
-                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewYouTube"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewFacebook"
                     app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Entrar" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imageViewFacebook"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_facebook_logo"
                     app:layout_constraintStart_toStartOf="@+id/buttonLogin_Entrar"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                    app:layout_constraintTop_toTopOf="@+id/imageViewInstagram" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageViewYouTube"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/ic_youtube_logo"
                     app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                    app:layout_constraintTop_toTopOf="@+id/imageViewInstagram" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

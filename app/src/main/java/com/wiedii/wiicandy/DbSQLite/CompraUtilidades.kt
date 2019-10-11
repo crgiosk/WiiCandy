@@ -16,7 +16,8 @@ class CompraUtilidades {
                 "${Compra.columnProducto} varchar(20) not null," +
                 "${Compra.columnCantidad} varchar(6) not null," +
                 "${Compra.columnTotal} varchar(6) not null, " +
-                "${Compra.columnFecha} varchar(30) not null);"
+                "${Compra.columnFecha} varchar(30) not null," +
+                "${Compra.columnIcono} int(11) not null);"
 
         val createTables= "$createTableCompra"
         val dropTables="DROP TABLE  IF EXISTS ${Compra.nameTable} "
@@ -39,6 +40,7 @@ class CompraUtilidades {
                 val columnCantidad = "cantidad"
                 val columnTotal = "total"
                 val columnFecha = "fecha"
+                val columnIcono = "icono"
             }
 
         }
