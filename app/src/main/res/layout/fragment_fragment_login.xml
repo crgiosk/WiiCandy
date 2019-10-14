@@ -6,105 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".UI.vistas.Fragment_login">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="500dp">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeftToRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="0.10" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRightToLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="0.90" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guidelineLeftToRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="20dp"
-                    app:layout_constraintGuide_percent="0.10" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="118dp"
+            android:src="@drawable/wiedii"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumberPhone"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guidelineRightToLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="20dp"
-                    app:layout_constraintGuide_percent="0.90" />
+        <EditText
+            android:id="@+id/editTextNumberPhone"
+            android:layout_width="150dp"
+            android:layout_height="47dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="0000000000"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLogin_Entrar"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="0dp"
-                    android:layout_height="118dp"
-                    android:layout_marginTop="28dp"
-                    android:src="@drawable/wiedii"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/buttonLogin_Entrar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_button_login"
+            android:text="@string/textButtonLogin"
+            android:textColor="@drawable/text_button_login"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLogin_Registrar"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberPhone" />
 
-                <EditText
-                    android:id="@+id/editTextNumberPhone"
-                    android:layout_width="150dp"
-                    android:layout_height="47dp"
-                    android:layout_marginTop="54dp"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:hint="0000000000"
-                    android:inputType="number"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <Button
+            android:id="@+id/buttonLogin_Registrar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_button_login"
+            android:text="@string/textButtonRegistrar"
+            android:textColor="@drawable/text_button_login"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewYouTube"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Entrar" />
 
-                <Button
-                    android:id="@+id/buttonLogin_Entrar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="51dp"
-                    android:background="@drawable/style_button_login"
-                    android:text="@string/textButtonLogin"
-                    android:textColor="@drawable/text_button_login"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumberPhone" />
+        <ImageView
+            android:id="@+id/imageViewFacebook"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_facebook_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewYouTube"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageViewYouTube"
+            app:layout_constraintTop_toTopOf="@+id/imageViewYouTube" />
 
-                <ImageView
-                    android:id="@+id/imageViewInstagram"
-                    android:layout_width="69dp"
-                    android:layout_height="69dp"
-                    android:layout_marginTop="40dp"
-                    android:src="@drawable/ic_instagram_logo"
-                    app:layout_constraintEnd_toStartOf="@+id/imageViewYouTube"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewFacebook"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Entrar" />
+        <ImageView
+            android:id="@+id/imageViewInstagram"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:src="@drawable/ic_instagram_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewYouTube"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewYouTube"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewYouTube" />
 
-                <ImageView
-                    android:id="@+id/imageViewFacebook"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_facebook_logo"
-                    app:layout_constraintStart_toStartOf="@+id/buttonLogin_Entrar"
-                    app:layout_constraintTop_toTopOf="@+id/imageViewInstagram" />
+        <ImageView
+            android:id="@+id/imageViewYouTube"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_youtube_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewFacebook"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageViewInstagram"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Registrar" />
 
-                <ImageView
-                    android:id="@+id/imageViewYouTube"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_youtube_logo"
-                    app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
-                    app:layout_constraintTop_toTopOf="@+id/imageViewInstagram" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- TODO: Update blank fragment layout -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -3,13 +3,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="textButtonLogin">Entrar</string>
+    <string name="textButtonRegistrar">Registrar</string>
+
+    <string name="textHintNombres">Nombres</string>
+    <string name="textHintApellidos">Apellidos</string>
+    <string name="textHintCelular">Celular</string>
+    <string name="textHintEmail">E-mail</string>
+    <string name="textHintSexo">Sexo</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="editextCantidad">Que cantidad llevaste?</string>
     <string name="editextProducto">Que compraste?</string>
-    <string name="editextTotal" >Cual fue el total?</string>
-
+    <string name="editextTotal">Cual fue el total?</string>
 
 
 </resources>

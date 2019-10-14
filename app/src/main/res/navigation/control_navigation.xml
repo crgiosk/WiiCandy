@@ -23,6 +23,13 @@
             app:destination="@id/redesSociales"
             app:popEnterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_fragment_login_to_fragmentRegistro"
+            app:destination="@id/fragmentRegistro"
+            app:enterAnim="@anim/entrar_abajo_arriba"
+            app:exitAnim="@anim/salir_abajo_arriba"
+            app:popEnterAnim="@anim/entrar_abajo_arriba"
+            app:popExitAnim="@anim/salir_abajo_arriba" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHome"
@@ -44,7 +51,12 @@
         tools:layout="@layout/fragment_compra_list" />
     <fragment
         android:id="@+id/redesSociales"
-        android:name="com.wiedii.wiicandy.RedesSociales"
+        android:name="com.wiedii.wiicandy.UI.vistas.RedesSociales"
         android:label="fragment_redes_sociales"
         tools:layout="@layout/fragment_redes_sociales" />
+    <fragment
+        android:id="@+id/fragmentRegistro"
+        android:name="com.wiedii.wiicandy.UI.vistas.FragmentRegistro"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro" />
 </navigation>

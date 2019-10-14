@@ -1,7 +1,6 @@
-package com.wiedii.wiicandy
+package com.wiedii.wiicandy.UI.vistas
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +10,7 @@ import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import android.widget.Toast
+import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_redes_sociales.*
 
 /**

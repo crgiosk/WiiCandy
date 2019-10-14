@@ -45,14 +45,23 @@ class FragmentCompras : Fragment() {
                 crud.triggerGetCompras()
                 compralist = ArrayList()
 
+
                 compralist = crud.getCompras()
-                adapter = CompraRecyclerViewAdapter(compralist, listener)
+
+                if (!compralist.isNullOrEmpty()){
+                    adapter = CompraRecyclerViewAdapter(compralist, listener)
+                    showMessage("Debes $${CompraCrud(context!!.applicationContext).deuda()} pesos")
+                }else{
+                    showMessage("No hay compras")
+                }
             }
 //activity!!.findViewById(android.R.id.content)
-            Snackbar.make(activity!!.findViewById(android.R.id.content), "Debes $${CompraCrud(context!!.applicationContext).deuda()} pesos", Snackbar.LENGTH_LONG).show()
-
         }
         return view
+    }
+
+    private fun showMessage(mensaje:String){
+        Snackbar.make(activity!!.findViewById(android.R.id.content), mensaje, Snackbar.LENGTH_LONG).show()
     }
 
 /*

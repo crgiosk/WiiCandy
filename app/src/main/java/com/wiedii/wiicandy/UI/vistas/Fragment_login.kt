@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_fragment_login.*
@@ -42,6 +43,10 @@ class Fragment_login : Fragment() {
 
         imageViewInstagram.setOnClickListener {
             navigateToRedesSociales("https://wiedii.squadlinx.com/login",it)
+        }
+        buttonLogin_Registrar.setOnClickListener {
+            Toast.makeText(context,"test", Toast.LENGTH_LONG).show()
+            Navigation.findNavController(it).navigate(R.id.action_fragment_login_to_fragmentRegistro)
         }
     }
 
