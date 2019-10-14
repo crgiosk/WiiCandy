@@ -30,88 +30,148 @@
             app:layout_constraintGuide_begin="20dp"
             app:layout_constraintGuide_percent=".90" />
 
-        <EditText
-            android:id="@+id/editTextRegistroNombres"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutNombres"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/textHintNombres"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/editTextRegistroApellidos"
+            android:layout_marginTop="16dp"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/ErrorEditext"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayoutApellidos"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/editTextRegistroApellidos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/textHintApellidos"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/spinnerSexo"
-            app:layout_constraintEnd_toEndOf="@+id/editTextRegistroNombres"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/editTextRegistroNombres"
-            app:layout_constraintTop_toBottomOf="@+id/editTextRegistroNombres" />
+            <EditText
+                android:id="@+id/editTextRegistroNombres"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/textHintNombres"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/editTextRegistroEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/textHintEmail"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/editText5RegistroCelular"
-            app:layout_constraintEnd_toEndOf="@+id/editTextRegistroApellidos"
-            app:layout_constraintStart_toStartOf="@+id/editTextRegistroApellidos"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerSexo" />
-
-        <EditText
-            android:id="@+id/editText5RegistroCelular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/textHintCelular"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/editTextRegistroEmail"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/editTextRegistroEmail"
-            app:layout_constraintTop_toBottomOf="@+id/editTextRegistroEmail" />
-
-        <Spinner
-            android:id="@+id/spinnerSexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/editTextRegistroEmail"
-            app:layout_constraintEnd_toEndOf="@+id/editTextRegistroApellidos"
-            app:layout_constraintHorizontal_bias="0.849"
-            app:layout_constraintStart_toEndOf="@+id/textViewSexo"
-            app:layout_constraintTop_toBottomOf="@+id/editTextRegistroApellidos" />
-
-        <Button
-            android:id="@+id/button"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutApellidos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNombres">
+
+            <EditText
+                android:id="@+id/editTextRegistroApellidos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/textHintApellidos"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLAyoutEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRegistrar"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutCelular">
+
+            <EditText
+                android:id="@+id/editTextRegistroEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/textHintEmail"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/textInputLayoutApellidos"
+                tools:layout_editor_absoluteX="116dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayoutCelular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLAyoutEmail"
+            app:layout_constraintEnd_toEndOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintStart_toStartOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutSexo">
+
+            <EditText
+                android:id="@+id/editTextRegistroCelular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/textHintCelular"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayoutFechaNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutSexo"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutApellidos">
+
+            <EditText
+                android:id="@+id/editTextFechaNacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/textHintFechaNacimiento"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="77dp"
+                tools:layout_editor_absoluteY="353dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayoutSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/textHintSexo"
+            app:errorEnabled="true"
+            app:helperText="@string/textHintSexo"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutCelular"
+            app:layout_constraintEnd_toEndOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutFechaNacimiento">
+
+            <Spinner
+                android:id="@+id/spinnerSexo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="125dp"
+                tools:layout_editor_absoluteY="182dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/style_button_login"
             android:text="@string/textButtonRegistrar"
             android:textColor="@drawable/text_button_login"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editText5RegistroCelular"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/editText5RegistroCelular"
-            app:layout_constraintTop_toBottomOf="@+id/editText5RegistroCelular" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLAyoutEmail" />
 
-        <TextView
-            android:id="@+id/textViewSexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textHintSexo"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/spinnerSexo"
-            app:layout_constraintStart_toStartOf="@+id/editTextRegistroApellidos"
-            app:layout_constraintTop_toTopOf="@+id/spinnerSexo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
