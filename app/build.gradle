@@ -41,6 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    //mask
+    implementation 'com.github.santalu:mask-edittext:1.1.1'
     // Room components
     implementation "androidx.room:room-runtime:2.1.0"
     implementation "androidx.room:room-ktx:$roomVersion"
@@ -55,7 +57,5 @@ dependencies {
 // ViewModel Kotlin support
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
 
-// Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
 }

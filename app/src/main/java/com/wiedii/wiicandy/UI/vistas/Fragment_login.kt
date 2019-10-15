@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.widget.Toast
 import androidx.navigation.Navigation
@@ -18,17 +19,18 @@ import kotlinx.android.synthetic.main.fragment_fragment_login.*
  */
 class Fragment_login : Fragment() {
     private lateinit var url: String
+
+
     private lateinit var bundle: Bundle
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_UNSPECIFIED)
         //editTextNumberPhone.hint="Su numero de celular aqui"
         buttonLogin_Entrar.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_fragment_login_to_fragmentHome)
@@ -56,6 +58,4 @@ class Fragment_login : Fragment() {
         Navigation.findNavController(it).navigate(R.id.action_fragment_login_to_redesSociales,bundle)
 
     }
-
-
 }

@@ -46,10 +46,36 @@
             android:gravity="center_horizontal"
             android:hint="0000000000"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/buttonLogin_Entrar"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/MyOverflowText"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLogin_Entrar"
+            app:layout_constraintEnd_toEndOf="@+id/editTextNumberPhone"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/editTextNumberPhone"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberPhone"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/editTextPassWord"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/editTextNumberPhone"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumberPhone"
+                tools:layout_editor_absoluteY="262dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/buttonLogin_Entrar"
@@ -62,7 +88,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guidelineRightToLeft"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberPhone" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         <Button
             android:id="@+id/buttonLogin_Registrar"
@@ -76,6 +102,17 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guidelineLeftToRight"
             app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Entrar" />
+
+        <ImageView
+            android:id="@+id/imageViewYouTube"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_youtube_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewFacebook"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageViewInstagram"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Registrar" />
 
         <ImageView
             android:id="@+id/imageViewFacebook"
@@ -98,17 +135,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageViewYouTube" />
-
-        <ImageView
-            android:id="@+id/imageViewYouTube"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/ic_youtube_logo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewFacebook"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageViewInstagram"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLogin_Registrar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,15 +1,22 @@
 package com.wiedii.wiicandy.UI.vistas
 
 
+import android.annotation.TargetApi
+import android.app.DatePickerDialog
+import android.app.Dialog
+import android.os.Build
 import android.os.Bundle
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
+import androidx.annotation.RequiresApi
 import com.wiedii.wiicandy.R
 import kotlinx.android.synthetic.main.fragment_registro.*
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +28,7 @@ class FragmentRegistro : Fragment() {
     private lateinit var correo: EditText
     private lateinit var celular: EditText
     private lateinit var sexo: RadioGroup
+    private lateinit var calendar: Calendar
 
 
     override fun onCreateView(
@@ -33,7 +41,14 @@ class FragmentRegistro : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         setValues()
+
+        editTextFechaNacimiento.setOnClickListener {
+
+            Toast.makeText(context!!.applicationContext,"dayOfMonth month byear",Toast.LENGTH_LONG).show()
+        }
 
         buttonRegistrar.setOnClickListener {
             alerts()
@@ -103,10 +118,8 @@ class FragmentRegistro : Fragment() {
         correo = editTextRegistroEmail
     }
 
-    fun validarCorreo(corre:String):Boolean{
+    private fun validarCorreo(corre:String):Boolean{
         val pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(corre).matches()
     }
-
-
 }

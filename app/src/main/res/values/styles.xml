@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ErrorEditext" parent="TextAppearance.AppCompat.Small">
-        <item name="android:textColor">@android:color/holo_red_dark</item>
+    <style name="MyOverflowText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 </resources>
