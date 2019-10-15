@@ -20,7 +20,7 @@ class FragmentRegistro : Fragment() {
     private lateinit var apellidos: EditText
     private lateinit var correo: EditText
     private lateinit var celular: EditText
-    private lateinit var sexo: Spinner
+    private lateinit var sexo: RadioGroup
 
 
     override fun onCreateView(
@@ -33,7 +33,6 @@ class FragmentRegistro : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setSpinner()
         setValues()
 
         buttonRegistrar.setOnClickListener {
@@ -45,15 +44,6 @@ class FragmentRegistro : Fragment() {
                 alerts()
             }
         }
-    }
-
-    private fun setSpinner() {
-        val adapter = ArrayAdapter<String>(
-            activity!!.applicationContext,
-            R.layout.spinner_item_style,
-            spinner_Sexo_opciones
-        )
-        spinnerSexo.adapter = adapter
     }
 
 
@@ -77,7 +67,7 @@ class FragmentRegistro : Fragment() {
             TextInputLayoutFechaNacimiento.setError(null)
         }
 
-        if (sexo.selectedItem.toString() == spinner_Sexo_opciones[0]) {
+        if (!radioButtonHombre.isChecked && !radioButtonHombre.isChecked) {
             TextInputLayoutSexo.setError(required)
         }else{
             TextInputLayoutSexo.setError(null)
@@ -103,12 +93,12 @@ class FragmentRegistro : Fragment() {
             || celular.text.isNullOrEmpty()
             || correo.text.isNullOrEmpty()
             || celular.text.isNullOrEmpty()
-            || sexo.selectedItem.toString() == spinner_Sexo_opciones[0]
+            && !radioButtonHombre.isChecked && !radioButtonHombre.isChecked
 
     private fun setValues() {
         nombres = editTextRegistroNombres
         apellidos = editTextRegistroApellidos
-        sexo = spinnerSexo
+        sexo = radioGroupSexo
         celular = editTextRegistroCelular
         correo = editTextRegistroEmail
     }

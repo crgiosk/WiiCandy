@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".UI.vistas.FragmentRegistro">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,9 +35,7 @@
             android:id="@+id/textInputLayoutNombres"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:errorEnabled="true"
-            app:errorTextAppearance="@style/ErrorEditext"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayoutApellidos"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
@@ -47,11 +46,8 @@
                 android:id="@+id/editTextRegistroNombres"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:ems="10"
                 android:hint="@string/textHintNombres"
-                android:inputType="textPersonName"
-                tools:layout_editor_absoluteX="100dp"
-                tools:layout_editor_absoluteY="16dp" />
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutSexo"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -74,6 +70,7 @@
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/TextInputLAyoutEmail"
             android:layout_width="0dp"
@@ -81,6 +78,7 @@
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/buttonRegistrar"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutCelular">
 
@@ -90,19 +88,20 @@
                 android:layout_height="match_parent"
                 android:ems="10"
                 android:hint="@string/textHintEmail"
-                android:inputType="textEmailAddress"
-                app:layout_constraintBottom_toTopOf="@+id/textInputLayoutApellidos"
-                tools:layout_editor_absoluteX="116dp" />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/TextInputLayoutCelular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="169dp"
+            android:layout_height="72dp"
             app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
             app:layout_constraintBottom_toTopOf="@+id/TextInputLAyoutEmail"
-            app:layout_constraintEnd_toEndOf="@+id/TextInputLayoutFechaNacimiento"
-            app:layout_constraintStart_toStartOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/TextInputLayoutFechaNacimiento"
             app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutSexo">
 
             <EditText
@@ -114,28 +113,18 @@
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/TextInputLayoutFechaNacimiento"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="213dp"
             android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutSexo"
+            android:background="@drawable/style_button_login"
+            android:text="@string/textButtonRegistrar"
+            android:textColor="@drawable/text_button_login"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutApellidos">
-
-            <EditText
-                android:id="@+id/editTextFechaNacimiento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/textHintFechaNacimiento"
-                android:inputType="textPersonName"
-                tools:layout_editor_absoluteX="77dp"
-                tools:layout_editor_absoluteY="353dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/TextInputLAyoutEmail" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/TextInputLayoutSexo"
@@ -146,32 +135,55 @@
             app:helperText="@string/textHintSexo"
             app:helperTextEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutCelular"
-            app:layout_constraintEnd_toEndOf="@+id/TextInputLayoutFechaNacimiento"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/TextInputLayoutFechaNacimiento"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutFechaNacimiento">
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutApellidos">
 
-            <Spinner
-                android:id="@+id/spinnerSexo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="125dp"
-                tools:layout_editor_absoluteY="182dp" />
+            <RadioGroup
+                android:id="@+id/radioGroupSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <RadioButton
+                    android:id="@+id/radioButtonMujer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mujer" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="Hombre" />
+            </RadioGroup>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/buttonRegistrar"
-            android:layout_width="213dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/style_button_login"
-            android:text="@string/textButtonRegistrar"
-            android:textColor="@drawable/text_button_login"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayoutFechaNacimiento"
+            android:layout_width="125dp"
+            android:layout_height="72dp"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:layout_constraintBottom_toBottomOf="@+id/TextInputLayoutCelular"
+            app:layout_constraintEnd_toStartOf="@+id/TextInputLayoutCelular"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/TextInputLAyoutEmail" />
+            app:layout_constraintTop_toTopOf="@+id/TextInputLayoutCelular">
+
+            <EditText
+                android:id="@+id/editTextFechaNacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/textHintFechaNacimiento"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </FrameLayout>
