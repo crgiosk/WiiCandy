@@ -163,7 +163,7 @@
                         android:enabled="true"
                         android:hint="@string/textHintFechaNacimiento"
                         android:inputType="date"
-                        app:met_mask="##/##/####"/>
+                        app:met_mask="##-##-####"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
