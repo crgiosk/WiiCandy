@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolba"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/DarkMode"
+        android:title="Dar Mode" />
+    <item
+        android:id="@+id/LightMode"
+        android:title="Light Mode" />
+</menu>

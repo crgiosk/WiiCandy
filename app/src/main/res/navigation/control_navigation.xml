@@ -15,9 +15,10 @@
             app:destination="@id/fragmentHome"
             app:enterAnim="@anim/entrar_derecha_izquierda"
             app:exitAnim="@anim/close_derecha_izquierda"
+            app:launchSingleTop="false"
             app:popEnterAnim="@anim/entrar_izquierda_derecha"
             app:popExitAnim="@anim/close_izquierda_derecha"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragment_login_to_redesSociales"
             app:destination="@id/redesSociales"
@@ -30,6 +31,9 @@
             app:exitAnim="@anim/salir_abajo_arriba"
             app:popEnterAnim="@anim/entrar_abajo_arriba"
             app:popExitAnim="@anim/salir_abajo_arriba" />
+        <action
+            android:id="@+id/action_fragment_login_to_loading"
+            app:destination="@id/loading" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHome"
@@ -42,13 +46,20 @@
             app:enterAnim="@anim/entrar_abajo_arriba"
             app:exitAnim="@anim/salir_arriba_abajo"
             app:popEnterAnim="@anim/entrar_arriba_abajo"
-            app:popExitAnim="@anim/salir_abajo_arriba" />
+            app:popExitAnim="@anim/salir_abajo_arriba"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/myCompraFragment"
         android:name="com.wiedii.wiicandy.UI.vistas.FragmentCompras"
         android:label="fragment_mycompra_list"
-        tools:layout="@layout/fragment_compra_list" />
+        tools:layout="@layout/fragment_compra_list" >
+        <action
+            android:id="@+id/action_myComprasFragment_to_fragmentHome"
+            app:destination="@id/fragmentHome"
+            app:popUpTo="@+id/myCompraFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/redesSociales"
         android:name="com.wiedii.wiicandy.UI.vistas.RedesSociales"
@@ -59,4 +70,13 @@
         android:name="com.wiedii.wiicandy.UI.vistas.FragmentRegistro"
         android:label="fragment_registro"
         tools:layout="@layout/fragment_registro" />
+    <dialog
+        android:id="@+id/loading"
+        android:name="com.wiedii.wiicandy.UI.vistas.Loading"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" >
+        <action
+            android:id="@+id/action_loading_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </dialog>
 </navigation>

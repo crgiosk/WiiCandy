@@ -1,13 +1,15 @@
 package com.wiedii.wiicandy.UI.vistas
 
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.wiedii.wiicandy.Helpers.Compra
@@ -35,6 +37,10 @@ class FragmentCompra : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        //activity!!.window.setBackgroundDrawable(ColorDrawable(Color.BLACK))
+        // getWindow().setBackgroundDrawable(new ColorDrawable(isLight ? Color.WHITE : Color.BLACK));
+        editTextProducto.requestFocus()
         clearFields()
         val compraCrud = CompraCrud(context!!)
         buttonCompras.setOnClickListener {
@@ -103,27 +109,46 @@ class FragmentCompra : Fragment() {
         val required = "Informacion requerida"
 
         if (editTextProducto.text.isNullOrEmpty()) {
-            editTextProducto.error = "No llevaste nada?"
+            textInputLayoutProducto.setError("No llevaste nada?")
+        }else {
+            textInputLayoutProducto.setError(null)
         }
         if (editTextCantidad.text.isNullOrEmpty()) {
-            editTextCantidad.error = "Llevaste algo que no se puede contar?"
+            textInputLayoutCantidad.setError("No llevaste nada?")
+        }else {
+            textInputLayoutCantidad.setError(null)
         }
         if (editTextTotal.text.isNullOrEmpty()) {
-            editTextTotal.error = "Te vas a ir sin pagar?"
+            textInputLayoutTotal.setError("No llevaste nada?")
+        }else {
+            textInputLayoutTotal.setError(null)
         }
 
         if (editTextProducto.text.isNullOrEmpty() && editTextCantidad.text.isNullOrEmpty() && editTextTotal.text.isNullOrEmpty()) {
-            editTextProducto.error = required
-            editTextCantidad.error = required
-            editTextTotal.error = required
+            textInputLayoutProducto.setError(required)
+            editTextCantidad.setError(required)
+            textInputLayoutTotal.setError(required)
             Snackbar.make(
                 activity!!.findViewById(android.R.id.content),
                 "Informacion requerida",
                 Snackbar.LENGTH_LONG
             ).show()
+        }else{
+            textInputLayoutProducto.setError(null)
+            textInputLayoutCantidad.setError(null)
+            textInputLayoutTotal.setError(null)
         }
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        Toast.makeText(context,"se creo las opciones",Toast.LENGTH_LONG).show()
+    }
+
+
+
+
 
     private fun clearFields() {
         editTextProducto.setText("")

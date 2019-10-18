@@ -17,6 +17,9 @@
     <string name="editextCantidad">Que cantidad llevaste?</string>
     <string name="editextProducto">Que compraste?</string>
     <string name="editextTotal">Cual fue el total?</string>
+    <string name="guardar_compra">Guardar compra</string>
+    <string name="ver_tus_compras">Ver tus compras</string>
+    <string name="textHintCompra">Que compraste?</string>
 
 
 </resources>

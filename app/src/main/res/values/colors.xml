@@ -6,4 +6,7 @@
 
     <color name="backgroundButtonLogin">#2798FF</color>
     <color name="backgroundButtonLoginDark">#040F8D</color>
+
+    <color name="backgroundButtonLogin_darkMOde">#FFFFFF</color>
+    <color name="backgroundButtonLoginDark_darkMOde">#9E9E9E</color>
 </resources>
