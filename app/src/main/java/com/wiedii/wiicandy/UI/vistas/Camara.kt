@@ -2,10 +2,8 @@ package com.wiedii.wiicandy.UI.vistas
 
 import android.annotation.TargetApi
 import android.app.Activity
-import android.content.ContentResolver
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
@@ -22,11 +20,10 @@ import kotlinx.android.synthetic.main.activity_camara.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.jar.Manifest
 
 class Camara : AppCompatActivity() {
     var solicitudTomarFoto = 1
-
+    var solicitudSeleccionarFoto = 2
     val permisoCamara = android.Manifest.permission.CAMERA
     val permisoWriteStore = android.Manifest.permission.READ_EXTERNAL_STORAGE
     val permisoReadStore = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -38,6 +35,31 @@ class Camara : AppCompatActivity() {
         buttonTomarFoto.setOnClickListener {
             pedir_permiso()
         }
+
+        buttonSeleccion.setOnClickListener {
+            seleccionarFoto()
+        }
+    }
+
+    private fun seleccionarFoto() {
+        pedir_permisoSeleccionarFoto()
+    }
+
+    private fun pedir_permisoSeleccionarFoto() {
+        val contexto = ActivityCompat.shouldShowRequestPermissionRationale(this, permisoWriteStore)
+
+        if (contexto) {
+            solicitudPermisionSeleccionarFoto()
+        } else {
+            solicitudPermisionSeleccionarFoto()
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun solicitudPermisionSeleccionarFoto() {
+        requestPermissions(
+            arrayOf(permisoReadStore), solicitudSeleccionarFoto
+        )
     }
 
 
@@ -80,6 +102,15 @@ class Camara : AppCompatActivity() {
         }
     }
 
+    fun disparaIntetSeleccionarFoto() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startActivityForResult(
+            Intent.createChooser(intent, "selecionar una foto "),
+            solicitudSeleccionarFoto
+        )
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -100,6 +131,20 @@ class Camara : AppCompatActivity() {
                     Toast.makeText(this, "Concede permisos", Toast.LENGTH_LONG).show()
                 }
             }
+
+            solicitudSeleccionarFoto -> {
+                if (grantResults.size > 0) {
+                    //Tenemos permiso
+                    disparaIntetSeleccionarFoto()
+                } else {
+                    //no permiso
+                    Toast.makeText(
+                        this,
+                        "Concede permisos para acceder a tus fotos",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
         }
     }
 
@@ -108,7 +153,7 @@ class Camara : AppCompatActivity() {
         //0 es cuando no eligio foto   // uno cuando si ps
 
         Log.e("resultImage", requestCode.toString())
-
+        Log.e("result", Activity.RESULT_OK.toString())
         when (requestCode) {
             solicitudTomarFoto -> {
                 if (resultCode == Activity.RESULT_OK) {
@@ -116,37 +161,50 @@ class Camara : AppCompatActivity() {
                     /*
                     val extra= data!!.extras
                     val imageBitmap= extra!!.get("data") as Bitmap */
-                    val uri = Uri.parse(urlFotoActual)
-                    val stream = contentResolver.openInputStream(uri)
-                    val imageBitmap = BitmapFactory.decodeStream(stream)
-                    imageViewFotoProducto.setImageBitmap(imageBitmap)
+                    mostrarBitMap(urlFotoActual)
                     añadirImageGaleria()
                 } else {
                     //Cancelo la captura
                     Toast.makeText(this, "cancelo foto ", Toast.LENGTH_LONG).show()
                 }
             }
+
+            solicitudSeleccionarFoto -> {
+                Log.e("result", Activity.RESULT_OK.toString())
+                if (resultCode == Activity.RESULT_OK) {
+                    mostrarBitMap(data?.data.toString())
+
+                }
+            }
         }
     }
+
+    private fun mostrarBitMap(url:String){
+        val uri = Uri.parse(url)
+        val stream = contentResolver.openInputStream(uri)
+        val imageBitmap = BitmapFactory.decodeStream(stream)
+        imageViewFotoProducto.setImageBitmap(imageBitmap)
+    }
+
 
     fun crearArchivoImgen(): File {
         val timeStamp = SimpleDateFormat("yyyMMdd_HHmmss").format(Date())
         //val directorio = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         //para que guarde en la carpeta pictures, se reemplaza la carpeta directorio por dirPictures en imegen
-        val directorio= Environment.getExternalStorageDirectory()
+        val directorio = Environment.getExternalStorageDirectory()
         val dirPictures = File("${directorio.absolutePath}/Pictures/")
 
         val nombreImagen = "JPEG_${timeStamp}_"
         val extencion = ".jpg"
 
-        val imagen = File.createTempFile(nombreImagen, extencion,dirPictures)
+        val imagen = File.createTempFile(nombreImagen, extencion, dirPictures)
         urlFotoActual = "file://Wii${imagen.absolutePath}"
 
         Log.d("urlImage", imagen.toString())
         return imagen
     }
 
-    fun añadirImageGaleria() {
+    private fun añadirImageGaleria() {
         val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
         val file = File(urlFotoActual)
         val uri = Uri.fromFile(file)
