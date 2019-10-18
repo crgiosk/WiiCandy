@@ -63,6 +63,10 @@ class FragmentCompra : Fragment() {
             }
         }
 
+        buttonFotoProducto.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_fragmentHome_to_camara)
+        }
+
         buttonVerCompras.setOnClickListener {
 
             Navigation.findNavController(it)

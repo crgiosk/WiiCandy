@@ -38,14 +38,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_begin="20dp"
+                    app:layout_constraintGuide_begin="29dp"
                     app:layout_constraintGuide_percent="0.10" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayoutProducto"
-                    android:layout_width="0dp"
+                    android:layout_width="329dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
                     android:hint="@string/textHintCompra"
                     app:errorEnabled="true"
                     app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCantidad"
@@ -64,11 +64,11 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayoutCantidad"
-                    android:layout_width="0dp"
+                    android:layout_width="329dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    app:errorEnabled="true"
+                    android:layout_marginTop="16dp"
                     android:hint="@string/editextCantidad"
+                    app:errorEnabled="true"
                     app:layout_constraintBottom_toTopOf="@+id/textInputLayoutTotal"
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -78,20 +78,20 @@
                         android:id="@+id/editTextCantidad"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="number"
-                        android:baselineAligned="false"/>
+                        android:baselineAligned="false"
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayoutTotal"
-                    android:layout_width="0dp"
+                    android:layout_width="329dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
                     android:hint="@string/editextTotal"
                     app:errorEnabled="true"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonCompras"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonFotoProducto"
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCantidad">
@@ -100,16 +100,39 @@
                         android:id="@+id/editTextTotal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="number"
-                        android:baselineAligned="false"/>
+                        android:baselineAligned="false"
+                        android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/buttonVerCompras"
-                    android:layout_width="0dp"
+                    android:id="@+id/buttonFotoProducto"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Toma Foto"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonCompras"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTotal" />
+
+                <Button
+                    android:id="@+id/buttonCompras"
+                    android:layout_width="329dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/style_button_login"
+                    android:text="@string/guardar_compra"
+                    android:textColor="@drawable/text_button_login"
+                    app:layout_constraintBottom_toTopOf="@+id/buttonVerCompras"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonFotoProducto" />
+
+                <Button
+                    android:id="@+id/buttonVerCompras"
+                    android:layout_width="329dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/style_button_login"
                     android:text="@string/ver_tus_compras"
                     android:textColor="@drawable/text_button_login"
@@ -117,19 +140,6 @@
                     app:layout_constraintEnd_toStartOf="@+id/guideline9"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@+id/buttonCompras" />
-
-                <Button
-                    android:id="@+id/buttonCompras"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/style_button_login"
-                    android:text="@string/guardar_compra"
-                    android:textColor="@drawable/text_button_login"
-                    app:layout_constraintBottom_toTopOf="@+id/buttonVerCompras"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayoutTotal"
-                    app:layout_constraintStart_toStartOf="@+id/textInputLayoutTotal"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTotal" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

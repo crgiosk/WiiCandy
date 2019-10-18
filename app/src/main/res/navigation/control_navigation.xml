@@ -48,6 +48,9 @@
             app:popEnterAnim="@anim/entrar_arriba_abajo"
             app:popExitAnim="@anim/salir_abajo_arriba"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_fragmentHome_to_camara"
+            app:destination="@id/camara" />
     </fragment>
     <fragment
         android:id="@+id/myCompraFragment"
@@ -79,4 +82,9 @@
             android:id="@+id/action_loading_to_fragmentHome"
             app:destination="@id/fragmentHome" />
     </dialog>
+    <activity
+        android:id="@+id/camara"
+        android:name="com.wiedii.wiicandy.UI.vistas.Camara"
+        android:label="activity_camara"
+        tools:layout="@layout/activity_camara" />
 </navigation>
